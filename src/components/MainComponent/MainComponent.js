@@ -86,11 +86,8 @@ const MainComponent = ({
                 "--color": titleColor,
                 "--titleFontFamily": titleFontFamily,
               }}
-            >
-              {title}
-              {/* <div className={classes.titleSpark}>{titleSpark}</div>{" "} */}
-              {/* <div className={classes.icon}>{centerIcon}</div> */}
-            </h3>
+              dangerouslySetInnerHTML={{ __html: title }}
+            ></h3>
           </div>
           <div className={classes.midRightContainer}>
             {data.length > 6 && (

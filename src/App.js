@@ -8,7 +8,7 @@ function App() {
     titleFontFamily: "'Rosario', sans-serif",
     mainBg: "#fff",
 
-    title: "Mind Map",
+    title: "Mind <br/> Map",
     titleColor: "#0ff00",
 
     data: [
