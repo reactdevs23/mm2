@@ -1,7 +1,7 @@
 .wrapper {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  gap: 15px;
 }
 
 .row {
@@ -12,15 +12,20 @@
   gap: 10px;
   z-index: 1;
 }
+.row2 {
+  grid-template-columns: 250px auto 250px;
+  gap: 40px 40px;
+}
 .row3 {
   gap: 20px;
+  direction: rtl;
 }
 
 .wrapper7 .row3,
 .wrapper5 .row3 {
   grid-template-columns: auto auto;
   justify-content: center;
-  gap: 40px;
+  gap: 80px;
 }
 .middle {
   padding: 10px 40px;
@@ -29,7 +34,8 @@
   align-items: center;
   flex-direction: column;
   width: auto;
-  padding: 40px 0;
+  padding: 60px 0;
+  position: relative;
 }
 .middleMore {
   padding: 0;
@@ -45,7 +51,77 @@
   display: inline-block;
   text-transform: uppercase;
 }
+.arrow {
+  position: absolute;
+}
+.arrow1,
+.arrow2,
+.arrow3 {
+  top: 0;
+}
+.arrow1 {
+  left: 0;
+  top: 30%;
+  transform: translate(calc(-100% - 5px), calc(-100% - 5px));
+}
+.arrow2 {
+  left: 0;
+  transform: translate(0%, -30px);
+}
+.arrow3 {
+  right: 0;
+  transform: translate(80%, -5px);
+}
+.arrow4 {
+  right: 0;
+  transform: translate(calc(100% + 5px), 50%);
+}
+.arrow5 {
+  bottom: 0;
+  left: auto;
+  right: 0;
+  transform: translate(80%, 0px);
+}
+.arrow6 {
+  bottom: 0;
+  left: 50%;
 
+  transform: translate(-50%, 5px);
+}
+.arrow7 {
+  bottom: 0;
+  left: 20px;
+
+  transform: translate(-100%, 2px);
+}
+.arrow8 {
+  top: 50%;
+  left: -5px;
+
+  transform: translate(-100%, -50%);
+}
+.wrapper6 .arrow4,
+.wrapper6 .arrow8 {
+  display: none;
+}
+.wrapper7 .arrow6 {
+  display: none;
+}
+.wrapper5 .arrow4,
+.wrapper5 .arrow6,
+.wrapper5 .arrow8 {
+  display: none;
+}
+.wrapper5 .arrow7 {
+  left: 0;
+  transform: translate(0px, 2px);
+}
+.wrapper7 .arrow7 {
+  transform: translate(-50%, 8px) rotate(-10deg);
+}
+.wrapper7 .arrow5 {
+  transform: translate(40%, 0px);
+}
 .icon {
   margin-left: auto;
   display: flex;

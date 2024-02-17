@@ -3,9 +3,9 @@ import classes from "./MainComponent.module.css";
 const MainComponent = ({
   titleFontFamily,
   data,
-  centerIcon,
+  arrows,
   title,
-  titleSpark,
+
   titleColor,
 }) => {
   return (
@@ -51,6 +51,60 @@ const MainComponent = ({
               <div
                 className={[classes.item, classes.middleLeft].join(" ")}
                 style={{
+                  "--border": data[data.length - 1].border,
+                  "--shadowBg": data[data.length - 1].shadowBg,
+                  "--bg": data[data.length - 1].background,
+                }}
+              >
+                <h3
+                  className={classes.title}
+                  style={{
+                    "--color": data[data.length - 1].titlecolor,
+                    "--titleFontFamily": titleFontFamily,
+                  }}
+                >
+                  {data[data.length - 1].title}
+                </h3>
+                <p
+                  className={classes.info}
+                  style={{ "--color": data[data.length - 1].infoColor }}
+                >
+                  {data[data.length - 1].info}
+                </p>
+              </div>
+            )}
+          </div>
+          <div
+            className={[
+              data.length > 6 && classes.middleMore,
+              classes.middle,
+            ].join(" ")}
+          >
+            <h3
+              className={classes.title}
+              style={{
+                "--color": titleColor,
+                "--titleFontFamily": titleFontFamily,
+              }}
+              dangerouslySetInnerHTML={{ __html: title }}
+            ></h3>
+            <>
+              {arrows.map((arrow, i) => (
+                <div
+                  className={[classes.arrow, classes[`arrow${i + 1}`]].join(
+                    " "
+                  )}
+                >
+                  {arrow}
+                </div>
+              ))}
+            </>
+          </div>
+          <div className={classes.midRightContainer}>
+            {data.length > 6 && (
+              <div
+                className={[classes.item, classes.middleRight].join(" ")}
+                style={{
                   "--border": data[3].border,
                   "--shadowBg": data[3].shadowBg,
                   "--bg": data[3].background,
@@ -74,55 +128,21 @@ const MainComponent = ({
               </div>
             )}
           </div>
-          <div
-            className={[
-              data.length > 6 && classes.middleMore,
-              classes.middle,
-            ].join(" ")}
-          >
-            <h3
-              className={classes.title}
-              style={{
-                "--color": titleColor,
-                "--titleFontFamily": titleFontFamily,
-              }}
-              dangerouslySetInnerHTML={{ __html: title }}
-            ></h3>
-          </div>
-          <div className={classes.midRightContainer}>
-            {data.length > 6 && (
-              <div
-                className={[classes.item, classes.middleRight].join(" ")}
-                style={{
-                  "--border": data[4].border,
-                  "--shadowBg": data[4].shadowBg,
-                  "--bg": data[4].background,
-                }}
-              >
-                <h3
-                  className={classes.title}
-                  style={{
-                    "--color": data[4].titlecolor,
-                    "--titleFontFamily": titleFontFamily,
-                  }}
-                >
-                  {data[4].title}
-                </h3>
-                <p
-                  className={classes.info}
-                  style={{ "--color": data[4].infoColor }}
-                >
-                  {data[4].info}
-                </p>
-              </div>
-            )}
-          </div>
         </div>
         {data.length > 4 && (
           <div className={[classes.row3, classes.row].join(" ")}>
             {" "}
             {data
-              .slice(data.length === 7 ? -2 : data.length === 5 ? -2 : -3)
+              .slice(
+                data.length === 7
+                  ? -3
+                  : data.length === 5
+                  ? -2
+                  : data.length === 8
+                  ? -4
+                  : -3,
+                data.length === 7 ? -1 : data.length === 8 ? -1 : undefined
+              )
               .map((el, i) => (
                 <div
                   className={[classes.item, classes[`item-${i + 1}`]].join(" ")}
